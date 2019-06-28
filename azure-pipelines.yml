@@ -11,6 +11,9 @@ jobs:
       brew install ninja xamarin/xamarin-android-windeps/mingw-zlib p7zip
     displayName: 'Install Tools'
   - bash: |
+      git submodule update --init --recursive
+    displayName: 'Update Submodules'
+  - bash: |
       ./build_native
     displayName: 'Build Darwin'
   - bash: |
@@ -50,6 +53,9 @@ jobs:
       sudo apt install ninja-build -y
     displayName: 'Install Tools'
   - bash: |
+      git submodule update --init --recursive
+    displayName: 'Update Submodules'
+  - bash: |
       ./build_native
     displayName: 'Build Linux'
   - task: ArchiveFiles@2
@@ -65,6 +71,9 @@ jobs:
       pathtoPublish: $(Build.ArtifactStagingDirectory)
 - job: BuildNuget
   displayName: 'Build Nuget'
+  dependsOn:
+  - BuildMac
+  - BuildLinux
   pool:
     vmImage: xcode9-macos10.13
   steps:
