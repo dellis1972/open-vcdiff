@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <XDeltaBundleBinaries Condition=" '$(XDeltaBundleBinaries)' == '' ">False</XDeltaBundleBinaries>
+  </PropertyGroup>
+  <ItemGroup>
+    <_XDeltaNativeBinaries Include="$(MSBuildThisFileDirectory)**\vcdiff" />
+    <_XDeltaNativeBinaries Include="$(MSBuildThisFileDirectory)**\vcdiff.exe" />
+    <None Include="@(_XDeltaNativeBinaries)" Condition=" '$(XDeltaBundleBinaries)' == 'True' ">
+      <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

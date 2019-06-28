@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>vcdiff.native</id>
+    <version>0.8.4</version>
+    <title>vcdiff.native</title>
+    <authors>Dean Ellis</authors>
+    <owners>Microsoft, Xamarin</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://raw.githubusercontent.com/dellis1972/open-vcdiff/master/COPYING</licenseUrl>
+    <projectUrl>https://github.com/dellis1972/open-vcdiff</projectUrl>
+    <description>Native exe's for open-vcdiff (https://github.com/google/open-vcdiff)</description>
+    <summary>Native platform exe's for open-vcdiff binary compression tool (https://github.com/google/open-vcdiff).</summary>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright (c) 2016 Dean Ellis.</copyright>
+    <language></language>
+  </metadata>
+  <files>
+    <file src="build\Darwin\vcdiff" target="build/Darwin/vcdiff" />
+    <file src="build\Windows\64\vcdiff.exe" target="build/Windows/vcdiff.exe" />
+    <file src="build\Linux\vcdiff" target="build/Linux/vcdiff" />
+    <file src="build_android\Android\x86\vcdiff" target="build/Android/x86/vcdiff" />
+    <file src="build_android\Android\x86_64\vcdiff" target="build/Android/x86_64/vcdiff" />
+    <file src="build_android\Android\armeabi-v7a\vcdiff" target="build/Android/armeabi-v7a/vcdiff" />
+    <file src="build_android\Android\arm64-v8a\vcdiff" target="build/Android/arm64-v8a/vcdiff" />
+    <file src="vcdiff.native.targets" target="build/vcdiff.native.targets" />
+  </files>
+</package>

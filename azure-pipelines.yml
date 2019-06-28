@@ -82,6 +82,11 @@ jobs:
       inputs:
         artifactName: vcdiff
         downloadPath: $(Build.ArtifactStagingDirectory)
+    - task: ExtractFiles@1
+      displayName: Extract Artifacts
+      inputs:
+        archiveFilePatterns: 'vcdiff/*.7z'
+        destinationFolder: build
     - task: NuGetCommand@2
       displayName: package nuget
       inputs:
