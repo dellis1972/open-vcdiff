@@ -19,3 +19,5 @@ src/stamp-h1
 vcdiff
 libtool
 Makefile
+build
+android_bld
