@@ -85,7 +85,7 @@ jobs:
     - task: ExtractFiles@1
       displayName: Extract Artifacts
       inputs:
-        archiveFilePatterns: 'vcdiff/*.7z'
+        archiveFilePatterns: '$(Build.ArtifactStagingDirectory)**\*.7z'
         destinationFolder: build
     - task: NuGetCommand@2
       displayName: package nuget
