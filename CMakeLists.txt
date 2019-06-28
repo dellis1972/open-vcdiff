@@ -135,7 +135,7 @@ endif()
 
 if (vcdiff_build_exec)
   add_executable (vcdiff "src/vcdiff_main.cc")
-if(NOT APPLE)
+if(NOT APPLE AND NOT ENABLE_NDK)
   target_link_libraries (vcdiff vcddec vcdenc gflags -static)
 else()
   target_link_libraries (vcdiff vcddec vcdenc gflags)
