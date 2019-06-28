@@ -68,7 +68,7 @@ jobs:
   pool:
     vmImage: xcode9-macos10.13
   steps:
-    -task: DownloadBuildArtifacts@0
+    - task: DownloadBuildArtifacts@0
       displayName: download artifacts
       inputs:
         artifactName: vcdiff
