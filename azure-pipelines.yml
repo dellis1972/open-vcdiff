@@ -83,10 +83,25 @@ jobs:
         artifactName: vcdiff
         downloadPath: $(Build.ArtifactStagingDirectory)
     - task: ExtractFiles@1
-      displayName: Extract Artifacts
+      displayName: Extract Darwin Artifacts
       inputs:
-        archiveFilePatterns: '$(Build.ArtifactStagingDirectory)\**\*.7z'
-        destinationFolder: build
+        archiveFilePatterns: '$(Build.ArtifactStagingDirectory)/vcdiff/vcdiff-*-macos.7z'
+        destinationFolder: build/Darwin
+    - task: ExtractFiles@1
+      displayName: Extract Windows Artifacts
+      inputs:
+        archiveFilePatterns: '$(Build.ArtifactStagingDirectory)/vcdiff/vcdiff-*-windows.7z'
+        destinationFolder: build/Windows/64
+    - task: ExtractFiles@1
+      displayName: Extract Linux Artifacts
+      inputs:
+        archiveFilePatterns: '$(Build.ArtifactStagingDirectory)/vcdiff/vcdiff-*-linux.7z'
+        destinationFolder: build/Linux
+    - task: ExtractFiles@1
+      displayName: Extract Android Artifacts
+      inputs:
+        archiveFilePatterns: '$(Build.ArtifactStagingDirectory)/vcdiff/vcdiff-*-android.7z'
+        destinationFolder: build/Android
     - task: NuGetCommand@2
       displayName: package nuget
       inputs:
