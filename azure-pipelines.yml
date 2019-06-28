@@ -110,10 +110,9 @@ jobs:
       inputs:
         command: custom
         arguments: pack vcdiff.nuspec
-        packDestination: '$(Build.ArtifactStagingDirectory)'
     - task: PublishBuildArtifacts@1
       displayName: upload artifacts
       inputs:
         artifactName: vcdiff-nuget
-        pathtoPublish: $(Build.ArtifactStagingDirectory)/vcdiff.native.0.8.4.nupkg
+        pathtoPublish: $(Build.SourcesDirectory)/vcdiff.native.0.8.4.nupkg
 
