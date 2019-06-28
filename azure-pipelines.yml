@@ -77,6 +77,8 @@ jobs:
   pool:
     vmImage: xcode9-macos10.13
   steps:
+    - script: |
+      brew install p7zip
     - task: DownloadBuildArtifacts@0
       displayName: download artifacts
       inputs:
