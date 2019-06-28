@@ -135,7 +135,7 @@ endif()
 
 if (vcdiff_build_exec)
   add_executable (vcdiff "src/vcdiff_main.cc")
-  target_link_libraries (vcdiff vcddec vcdenc gflags)
+  target_link_libraries (vcdiff vcddec vcdenc gflags -static)
   install (TARGETS vcdiff DESTINATION bin)
   install (FILES man/vcdiff.1 DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1)
 endif ()
