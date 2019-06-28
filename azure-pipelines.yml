@@ -79,6 +79,7 @@ jobs:
   steps:
     - script: |
       brew install p7zip
+      displayName: 'Install Tools'
     - task: DownloadBuildArtifacts@0
       displayName: download artifacts
       inputs:
