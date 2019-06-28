@@ -63,7 +63,7 @@ jobs:
     inputs:
       artifactName: vcdiff
       pathtoPublish: $(Build.ArtifactStagingDirectory)
-- job: Build Nuget
+- job: BuildNuget
   displayName: 'Build Nuget'
   pool:
     vmImage: xcode9-macos10.13
