@@ -10,6 +10,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <PropertyGroup>
+    <_VCDiffExeExtension Condition="$([MSBuild]::IsOSPlatform('windows'))" >.exe</_VCDiffExeExtension>
+    <_VCDiffPlatformDir Condition="$([MSBuild]::IsOSPlatform('windows'))">Windows</_VCDiffPlatformDir>
+    <_VCDiffPlatformDir Condition="$([MSBuild]::IsOSPlatform('linux'))">Linux</_VCDiffPlatformDir>
+    <_VCDiffPlatformDir Condition="$([MSBuild]::IsOSPlatform('osx'))">Darwin</_VCDiffPlatformDir>
+    <VCDiffTool Condition="">$(MSBuildThisFileDirectory)build\$(_VCDiffPlatformDir)\vcdiff$(_VCDiffExeExtension)</VCDiffTool>
+  </PropertyGroup>
   <Target Name="_VCDiffEnsurePermissions"
       AfterTargets="Restore"
       Inputs="@(_VCDiffNativeUnixBinaries)"

@@ -12,7 +12,7 @@
     <description>Native exe's for open-vcdiff (https://github.com/google/open-vcdiff)</description>
     <summary>Native platform exe's for open-vcdiff binary compression tool (https://github.com/google/open-vcdiff).</summary>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright (c) 2016 Dean Ellis.</copyright>
+    <copyright>Copyright (c) 2016 Microsoft.</copyright>
     <language></language>
   </metadata>
   <files>
