@@ -3,11 +3,19 @@
     <VCDiffBundleBinaries Condition=" '$(VCDiffBundleBinaries)' == '' ">False</VCDiffBundleBinaries>
   </PropertyGroup>
   <ItemGroup>
-    <_VCDiffNativeBinaries Include="$(MSBuildThisFileDirectory)**\vcdiff" />
-    <_VCDiffNativeBinaries Include="$(MSBuildThisFileDirectory)**\vcdiff.exe" />
-    <None Include="@(_VCDiffNativeBinaries)" Condition=" '$(VCDiffBundleBinaries)' == 'True' ">
+    <_VCDiffNativeUnixBinaries Include="$(MSBuildThisFileDirectory)**\vcdiff" />
+    <_VCDiffNativeWindowsBinaries Include="$(MSBuildThisFileDirectory)**\vcdiff.exe" />
+    <None Include="@(_VCDiffNativeUnixBinaries);@(_VCDiffNativeWindowsBinaries)" Condition=" '$(VCDiffBundleBinaries)' == 'True' ">
       <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <Target Name="_VCDiffEnsurePermissions"
+      AfterTargets="Restore"
+      Inputs="@(_VCDiffNativeUnixBinaries)"
+      Outputs="$(MSBuildThisFileDirectory)permissions.stamp"
+  >
+    <Exec Condition=" '$(OS)' != 'Windows_NT' " Command="chmod u+x %(_VCDiffNativeUnixBinaries.Identity)" IgnoreExitCode="true" ContinueOnError="true" />
+    <Touch Files="$(MSBuildThisFileDirectory)permissions.stamp" />
+  </Target>
 </Project>
