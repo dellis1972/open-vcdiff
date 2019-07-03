@@ -105,6 +105,14 @@ jobs:
       inputs:
         archiveFilePatterns: '$(Build.ArtifactStagingDirectory)/vcdiff/vcdiff-*-android.7z'
         destinationFolder: build/Android
+    - script: |
+        chmod u+x build/Darwin/vcdiff |
+        chmod u+x build/Linux/vcdiff |
+        chmod u+x build/Android/x86/vcdiff |
+        chmod u+x build/Android/x86_64/vcdiff |
+        chmod u+x build/Android/armeabi-v7a/vcdiff |
+        chmod u+x build/Android/arm64-v8a/vcdiff
+      displayName: 'Fix Permissions'
     - task: NuGetCommand@2
       displayName: package nuget
       inputs:
